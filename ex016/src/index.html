@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/web3/dist/web3.min.js"></script>
+</head>
+<body>
+    <script>
+        async function run() {
+            const web3 = await new Web3("HTTP://127.0.0.1:7545")
+
+            let abi = [ { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" }, { "inputs": [], "name": "enderecoInterior", "outputs": [ { "internalType": "address", "name": "", "type": "address" } ], "stateMutability": "view", "type": "function", "constant": true }, { "inputs": [], "name": "receberDinheiro", "outputs": [], "stateMutability": "payable", "type": "function", "payable": true } ]
+            let endereco = "0x4a6c9f61a77230b2c528056fbe9a5ff3363f2f81"
+
+            const contract = await new web3.eth.Contract(abi, endereco)
+
+            let receipt = await contract.methods.receberDinheiro().send({from:"0x4d2d4d85531AA8bdB50Aa86686423D303eB0833A", value:10000000000000000000});
+            console.log(receipt);
+        }
+        run();
+
+
+    </script>
+</body>
+</html>
