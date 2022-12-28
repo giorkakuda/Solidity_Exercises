@@ -1,0 +1,83 @@
+{
+  "contractName": "Simple",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Simple.sol\":\"Simple\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Simple.sol\":{\"keccak256\":\"0x9a5b202c939294f9c3b6105b99a1d4f87be0f2e41cdb29efae65bd56e372f5cb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ce3cf85c908954bc7923264f9ab6d1898dce7ceca6a16ab3a3b341721b065887\",\"dweb:/ipfs/QmeSWxmoPx1SFjaBRUUwHfHvAbqsVzcivdcVCpjLbX6B7g\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220220b0b320d491cc9825b93d6ec0ae9be34726bbbc9657b54ee77f6abe0e2277264736f6c634300080b0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220220b0b320d491cc9825b93d6ec0ae9be34726bbbc9657b54ee77f6abe0e2277264736f6c634300080b0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "59:28:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "59:28:1:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity^0.8.7;\r\n\r\ncontract Simple {\r\n    \r\n\r\n}",
+  "sourcePath": "C:\\estudos\\Solidity_Exercises\\contracts\\Simple.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Simple.sol",
+    "exportedSymbols": {
+      "Simple": [
+        35
+      ]
+    },
+    "id": 36,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:22:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Simple",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 35,
+        "linearizedBaseContracts": [
+          35
+        ],
+        "name": "Simple",
+        "nameLocation": "68:6:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 36,
+        "src": "59:28:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:54:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x8ba0fDf65F87ee04cfF6D6c7d127A33E1F49a0B9",
+      "transactionHash": "0x072013ee28af86ace809020ea9358dedf2f6e0125d0928abc743f094b536daf0"
+    }
+  },
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2022-12-28T13:11:24.117Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
