@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="conectar">
+        <button id="btnConectar" style="display: none;">Conectar ao Metamask</button>
+    </div>
+    <div>
+        Nome: <input id="inputNome" type="text">
+    </div>
+    <div>
+        <button id="alterar">Alterar nome</button>
+    </div>
+    <div id="nome"></div>
+
+    <script>
+        var provider = window.ethereum;
+
+        async function run() {
+            if (!provider) {
+                document.getElementById("conectar").innerHTML = "Instale o metamask"
+            } else {
+                let contas = await provider.request({method: 'eth_accounts'});//problema nessa linha
+                if (contas.length == 0) {
+                    document.getElementById("btnConectar").style.display = 'block';
+                    document.getElementById("btnConectar").addEventListener("click", ConectarN);
+                }
+                else {
+                    document.getElementById("conectar").innerHTML = contas[0];
+                }
+        }
+        async function ConectarN() {
+            let contas = await provider.request({method: 'eth_requestAccounts'});
+            document.getElementById("conectar").innerHTML = contas[0];
+
+        }
+   
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/web3/dist/web3.min.js"></script>
+</head>
+<body>
+    <button id="conectar">Conectar</button>
+    <button id="alterar">Alterar</button>
+    <button id="recuperar">Recuperar</button>
+    <button id="pega">Pega</button>
+    <script>
+        async function conectar() {
+            let resultado = await ethereum.request({method: 'eth_requestAccounts'});
+            console.log(resultado);
+        }
+//https://docs.metamask.io/guide/getting-started.html#basic-considerations
+//=> ethereum.request({ method: 'eth_requestAccounts' });
+        async function run() {
+            console.log('reload.');
+
+            if (window.ethereum) {
+                //const web3 = await new Web3(window.ethereum);//=> ao inves do ganache, agora é metamask
+                //let contas = await web3.eth.getAccounts(); //// para pegar as contas
+                //console.log(web3);
+                let contas = await ethereum.request({method: 'eth_coinbase'});
+                console.log("contas ->", contas);//tive problemas nesta linha
+            }
+            else (
+                alert("Metamask não esta instalado!!!")// problema com alert
+            )
+
+            
+        }
+        var abi = [ { "inputs": [], "name": "nome", "outputs": [ { "internalType": "string", "name": "", "type": "string" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "string", "name": "_novoNome", "type": "string" } ], "name": "mudaNome", "outputs": [], "stateMutability": "nonpayable", "type": "function" } ]
+        var endereco = '0xa87431219a2f0ca892a7541a280f6992339890fe'
+        
+        async function recuperar() {
+            const web3 = await new Web3(window.ethereum);
+            let contrato = await new web3.eth.Contract(abi, endereco);
+            let nome = await contrato.methods.nome().call();
+            console.log(nome)
+
+        }
+        async function alterar() {
+            const web3 = await new Web3(window.ethereum);
+
+            let contas = await web3.eth.getAccounts();
+            conta = contas[0];
+
+            let contrato = await new web3.eth.Contract(abi,endereco);
+            let receipt = await contrato.methods.mudaNome("Giulliard").send({from: conta})
+            console.log(receipt);
+        }
+        async function pega() {
+            let rede = await ethereum.request({method:'eth_chainId'});
+            console.log(rede)
+
+        }
+        document.getElementById("conectar").addEventListener('click', conectar);
+        document.getElementById("alterar").addEventListener('click', alterar);
+        document.getElementById("recuperar").addEventListener('click', recuperar);
+        document.getElementById("pega").addEventListener('click', pega);
+        ethereum.on('chainChanged', () => (window.location.reload()));
+        ethereum.on('accountsChanged', () => (alert('alterou sua conta!')));
+
+
+    </script>
+</body>
+</html>
